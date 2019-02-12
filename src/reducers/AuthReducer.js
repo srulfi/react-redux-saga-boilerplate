@@ -1,61 +1,64 @@
-import Immutable from 'seamless-immutable';
-
 import { AuthTypes } from '../types';
 
-const initialState = Immutable({
+const initialState = {
   loading: false,
   loggedIn: false,
   user: null,
   success: false,
-  error: null,
-});
+  error: false,
+};
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case AuthTypes.SYNC_USER:
     case AuthTypes.LOGIN:
     case AuthTypes.LOGOUT:
-      return state.merge({
+      return {
+        ...state,
         loading: true,
         success: false,
-        error: null,
-      });
+        error: false,
+      };
 
     case AuthTypes.SYNC_USER_SUCCESS:
-      return state.merge({
+      return {
+        ...state,
         loading: false,
         loggedIn: action.loggedIn,
         user: action.user,
         success: true,
-        error: null,
-      });
+        error: false,
+      };
 
     case AuthTypes.LOGIN_SUCCESS:
-      return state.merge({
+      return {
+        ...state,
         loading: false,
         loggedIn: true,
         user: action.user,
         success: true,
-        error: null,
-      });
+        error: false,
+      };
 
     case AuthTypes.LOGOUT_SUCCESS:
-      return state.merge({
+      return {
+        ...state,
         loading: false,
         loggedIn: false,
         user: null,
         success: true,
-        error: null,
-      })
+        error: false,
+      };
 
     case AuthTypes.SYNC_USER_ERROR:
     case AuthTypes.LOGIN_ERROR:
     case AuthTypes.LOGOUT_ERROR:
-      return state.merge({
+      return {
+        ...state,
         loading: false,
         success: false,
-        error: action.error,
-      });
+        error: true,
+      };
 
     default:
       return state;
