@@ -1,0 +1,9 @@
+export const SYNC_USER = 'auth: sync user';
+export const SYNC_USER_SUCCESS = 'auth: sync user success';
+export const SYNC_USER_ERROR = 'auth: sync user error';
+export const LOGIN = 'auth: login';
+export const LOGIN_SUCCESS = 'auth: login success';
+export const LOGIN_ERROR = 'auth: login error';
+export const LOGOUT = 'auth: logout';
+export const LOGOUT_SUCCESS = 'auth: logout success';
+export const LOGOUT_ERROR = 'auth: logout error';
