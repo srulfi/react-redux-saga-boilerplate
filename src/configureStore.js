@@ -2,7 +2,6 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { persistReducer, persistStore } from 'redux-persist';
 import createSagaMiddleware from 'redux-saga';
 import ReduxPersist from './config/ReduxPersist';
-import Rehydration from './services/Rehydration';
 import reducers from './reducers';
 import sagas from './sagas';
 
@@ -29,11 +28,6 @@ export default (initialState = {}) => {
 
   const store = createStore(finalReducers, initialState, composeEnhancer(...enhancers));
 
-  // configure persistStore and check reducer version number
-  if (ReduxPersist.active) {
-    Rehydration.updateReducers(store);
-  }
-  
   // kick off root saga
   sagaMiddleware.run(sagas);
 
