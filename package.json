@@ -65,11 +65,21 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "lint": "eslint ./src",
-    "lint-fix": "yarn run lint --fix",
+    "lint-fix": "yarn lint --fix",
     "prettier": "prettier --write src/**/*.js"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "pretty-quick --staged",
+      "eslint --fix",
+      "git add"
+    ]
   },
   "browserslist": [
     ">0.2%",
