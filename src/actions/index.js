@@ -1,5 +1,3 @@
 import * as AuthActions from './AuthActions';
 
-export {
-  AuthActions,
-};
+export { AuthActions };

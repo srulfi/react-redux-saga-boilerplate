@@ -2,7 +2,7 @@ import { put, select, delay } from 'redux-saga/effects';
 
 import { AuthTypes } from '../types';
 
-export function * syncUser () {
+export function* syncUser() {
   try {
     // API session request. delay() to show loader.
     yield delay(500);
@@ -16,12 +16,12 @@ export function * syncUser () {
   }
 }
 
-export function * login () {
+export function* login() {
   try {
     // API login request (email: action.email, password: action.password)
     const user = {
       name: 'John',
-      lastname: 'Doe',
+      lastname: 'Doe'
     };
 
     yield put({ type: AuthTypes.LOGIN_SUCCESS, user });
@@ -30,7 +30,7 @@ export function * login () {
   }
 }
 
-export function * logout () {
+export function* logout() {
   try {
     // API logout request
     yield put({ type: AuthTypes.LOGOUT_SUCCESS });

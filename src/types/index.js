@@ -1,5 +1,3 @@
 import * as AuthTypes from './AuthTypes';
 
-export {
-  AuthTypes,
-}
+export { AuthTypes };

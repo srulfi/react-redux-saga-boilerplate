@@ -12,6 +12,6 @@ export default {
     // Optionally, just specify the keys you DO want stored to persistence.
     // An empty array means 'don't store any reducers'.
     // whitelist: [],
-    stateReconciler: autoMergeLevel2,
+    stateReconciler: autoMergeLevel2
   }
 };

@@ -5,7 +5,7 @@ const initialState = {
   loggedIn: false,
   user: null,
   success: false,
-  error: false,
+  error: false
 };
 
 export default (state = initialState, action) => {
@@ -17,7 +17,7 @@ export default (state = initialState, action) => {
         ...state,
         loading: true,
         success: false,
-        error: false,
+        error: false
       };
 
     case AuthTypes.SYNC_USER_SUCCESS:
@@ -27,7 +27,7 @@ export default (state = initialState, action) => {
         loggedIn: action.loggedIn,
         user: action.user,
         success: true,
-        error: false,
+        error: false
       };
 
     case AuthTypes.LOGIN_SUCCESS:
@@ -37,7 +37,7 @@ export default (state = initialState, action) => {
         loggedIn: true,
         user: action.user,
         success: true,
-        error: false,
+        error: false
       };
 
     case AuthTypes.LOGOUT_SUCCESS:
@@ -47,7 +47,7 @@ export default (state = initialState, action) => {
         loggedIn: false,
         user: null,
         success: true,
-        error: false,
+        error: false
       };
 
     case AuthTypes.SYNC_USER_ERROR:
@@ -57,7 +57,7 @@ export default (state = initialState, action) => {
         ...state,
         loading: false,
         success: false,
-        error: true,
+        error: true
       };
 
     default:
