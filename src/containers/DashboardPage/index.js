@@ -1,27 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { AuthActions } from '../../actions';
 
-class DashboardPage extends Component {
+const DashboardPage = () => {
+	const { logout, loggedIn } = this.props;
 
-	render() {
-		const { logout, loggedIn } = this.props;
-
-		if (!loggedIn) {
-			return <Redirect to="/" />
-		}
-
-		return (
-			<div>
-		  	<h1>Dashboard Page</h1>
-		  	<button onClick={() => logout()}>LOGOUT</button>
-		  </div>
-		);
+	if (!loggedIn) {
+		return <Redirect to="/" />
 	}
-}
+
+	return (
+		<div>
+	  	<h1>Dashboard Page</h1>
+	  	<button onClick={() => logout()}>LOGOUT</button>
+	  </div>
+	);
+};
 
 DashboardPage.propTypes = {
   loggedIn: PropTypes.bool.isRequired,
