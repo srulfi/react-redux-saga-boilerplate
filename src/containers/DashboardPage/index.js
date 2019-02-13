@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 
 import { AuthActions } from '../../actions';
 
-const DashboardPage = () => {
-	const { logout, loggedIn } = this.props;
+const DashboardPage = props => {
+	const { logout, loggedIn } = props;
 
 	if (!loggedIn) {
 		return <Redirect to="/" />
@@ -15,7 +15,7 @@ const DashboardPage = () => {
 	return (
 		<div>
 	  	<h1>Dashboard Page</h1>
-	  	<button onClick={() => logout()}>LOGOUT</button>
+	  	<button type="submit" onClick={() => logout()}>LOGOUT</button>
 	  </div>
 	);
 };
