@@ -1,10 +1,10 @@
-import { combineReducers } from 'redux';
-import { connectRouter } from 'connected-react-router';
+import { combineReducers } from 'redux-immutable';
+import { connectRouter } from 'connected-react-router/immutable';
 import history from '../utils/history';
 
 import AuthReducer from './AuthReducer';
 
 export default combineReducers({
-  auth: AuthReducer,
-  router: connectRouter(history)
+  router: connectRouter(history),
+  auth: AuthReducer
 });

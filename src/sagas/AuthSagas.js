@@ -8,9 +8,8 @@ export function* syncUser() {
     yield delay(500);
     // For now we just get the state from the persisted reducer.
     const loggedIn = yield select(state => state.auth.loggedIn);
-    const user = yield select(state => state.auth.user);
 
-    yield put({ type: AuthTypes.SYNC_USER_SUCCESS, loggedIn, user });
+    yield put({ type: AuthTypes.SYNC_USER_SUCCESS, loggedIn });
   } catch (error) {
     yield put({ type: AuthTypes.SYNC_USER_ERROR, error });
   }
@@ -19,12 +18,7 @@ export function* syncUser() {
 export function* login() {
   try {
     // API login request (email: action.email, password: action.password)
-    const user = {
-      name: 'John',
-      lastname: 'Doe'
-    };
-
-    yield put({ type: AuthTypes.LOGIN_SUCCESS, user });
+    yield put({ type: AuthTypes.LOGIN_SUCCESS });
   } catch (error) {
     yield put({ type: AuthTypes.LOGIN_ERROR, error });
   }
