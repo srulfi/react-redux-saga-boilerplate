@@ -1,8 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import { persistReducer, persistStore } from 'redux-persist';
 import createSagaMiddleware from 'redux-saga';
 import { routerMiddleware } from 'connected-react-router';
-import ReduxPersist from './config/ReduxPersist';
 import reducers from './reducers';
 import sagas from './sagas';
 
@@ -16,19 +14,11 @@ export default (initialState = {}, history) => {
   // assemble middlewares
   const enhancers = [applyMiddleware(...middlewares)];
 
-  let finalReducers = reducers;
-
-  // if rehydration is on use persistReducer
-  if (ReduxPersist.active) {
-    const persistConfig = ReduxPersist.storeConfig;
-    finalReducers = persistReducer(persistConfig, reducers);
-  }
-
   const composeEnhancers =
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
   const store = createStore(
-    finalReducers,
+    reducers,
     initialState,
     composeEnhancers(...enhancers)
   );
@@ -36,8 +26,5 @@ export default (initialState = {}, history) => {
   // kick off root saga
   sagaMiddleware.run(sagas);
 
-  return {
-    persistor: persistStore(store),
-    store
-  };
+  return store;
 };
