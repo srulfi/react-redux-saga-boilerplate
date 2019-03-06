@@ -5,6 +5,6 @@ import history from '../utils/history';
 import AuthReducer from './AuthReducer';
 
 export default combineReducers({
-  router: connectRouter(history),
-  auth: AuthReducer
+	router: connectRouter(history),
+	auth: AuthReducer
 });
