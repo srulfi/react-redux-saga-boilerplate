@@ -69,7 +69,7 @@
 		"test": "node scripts/test.js",
 		"lint": "eslint ./src",
 		"lint-fix": "yarn lint --fix",
-		"prettier": "prettier --write src/**/*.js"
+		"pretty": "prettier --write src/**/*.js"
 	},
 	"husky": {
 		"hooks": {
