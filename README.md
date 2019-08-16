@@ -6,7 +6,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Redux
 - Redux Saga
 - Redux Persist
-- Connected React Router
 - PropTypes
 - Reselect
 - Babel
