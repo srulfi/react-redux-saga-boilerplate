@@ -1,0 +1,23 @@
+/* font families */
+$base: 'Open Sans';
+$emphasis: Arial, sans-serif;
+
+/* font sizes */
+$fontSmall: 12;
+$fontMedium: 16;  
+$fontLarge: 20;
+
+/* colors */
+$white: #fff;
+$black: #000;
+$transparent: rgba(0,0,0,0);
+
+/* breakpoints */
+$bpSmall: 576px;
+$bpMedium: 768px;
+$bpLarge: 992px;
+$bpXlarge: 1200px;
+
+/* others */
+$lineHeightMultipler: 1.2;
+$verticalSpace: 30px;

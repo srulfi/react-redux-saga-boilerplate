@@ -1,0 +1,26 @@
+@import './variables.scss';
+
+@mixin fontSize($size, $base: $fontMedium) {
+	font-size: #{$size}px;
+	font-size: #{$size / $base}rem;
+	line-height: #{$size * $lineHeightMultipler}px;
+	line-height: #{$size * $lineHeightMultipler / $base}rem;
+}
+
+@mixin media-breakpoint-down($width) {
+	@media (max-width: $width - 1) {
+		@content;
+	}
+}
+
+@mixin media-breakpoint-up($width) {
+	@media (min-width: $width) {
+		@content;
+	}
+}
+
+@mixin media-breakpoint-between($minWidth, $maxWidth) {
+	@media (min-width: $minWidth) and (max-width: $maxWidth - 1) {
+		@content;
+	}
+}

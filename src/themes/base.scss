@@ -1,0 +1,11 @@
+@import './variables.scss';
+@import './mixins.scss';
+
+html,
+body {
+	display: flex;
+	flex: 1;
+	width: 100%;
+	min-height: 100%;
+	@include fontSize($fontMedium);
+}
