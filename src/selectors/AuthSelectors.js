@@ -1,27 +1,27 @@
 import { createSelector } from 'reselect';
 
-const authSelector = state => state.get('auth');
+const authSelector = state => state.auth;
 
 export const selectLoading = () =>
 	createSelector(
 		authSelector,
-		authState => authState.get('loading')
+		authState => authState.loading
 	);
 
 export const selectLoggedIn = () =>
 	createSelector(
 		authSelector,
-		authState => authState.get('loggedIn')
+		authState => authState.loggedIn
 	);
 
 export const selectSuccess = () =>
 	createSelector(
 		authSelector,
-		authState => authState.get('success')
+		authState => authState.success
 	);
 
 export const selectError = () =>
 	createSelector(
 		authSelector,
-		authState => authState.get('error')
+		authState => authState.error
 	);

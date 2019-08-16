@@ -1,21 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'connected-react-router/immutable';
+import { Router } from 'react-router-dom';
 import * as ServiceWorker from './services/ServiceWorker';
-import App from './containers/App';
 import configureStore from './configureStore';
 import history from './utils/history';
-import './index.css';
+import App from './containers/App';
 
 const initialState = {};
-const store = configureStore(initialState, history);
+const store = configureStore(initialState);
 
 ReactDOM.render(
 	<Provider store={store}>
-		<ConnectedRouter history={history}>
+		<Router history={history}>
 			<App />
-		</ConnectedRouter>
+		</Router>
 	</Provider>,
 	document.getElementById('root')
 );
